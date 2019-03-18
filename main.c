@@ -38,15 +38,16 @@ int main(){
         printf("sip: %d.%d.%d.%d\n",packet[26], packet[27], packet[28], packet[29]);
         printf("dip: %d.%d.%d.%d\n\n", packet[30], packet[31], packet[32], packet[33]);
 
-        printf("dmac: %x:%x:%x:%x:%x:%x\n",packet[0], packet[1], packet[2], packet[3], packet[4], packet[5]);
-        printf("smac: %x:%x:%x:%x:%x:%x\n\n", packet[6], packet[7], packet[8], packet[9], packet[10], packet[11]);
+        printf("dmac: %02x:%02x:%02x:%02x:%02x:%02x\n",packet[0], packet[1], packet[2], packet[3], packet[4], packet[5]);
+        printf("smac: %02x:%02x:%02x:%02x:%02x:%02x\n\n", packet[6], packet[7], packet[8], packet[9], packet[10], packet[11]);
 
         printf("sport: %d\n",packet[34]*256+packet[35]);
-        printf("dport: %d\n\n",packet[37]);
+        printf("dport: %d\n\n",packet[36]+packet[37]);
 
-        printf("http_data: %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",packet[54], packet[55], packet[56], packet[57], packet[58],
-                packet[59], packet[60], packet[61], packet[62], packet[63], packet[64],
-                packet[65], packet[66], packet[67], packet[68], packet[69], packet[70]);
+        for (int i = 54; i <=70; i++){
 
+            printf("%c", packet[i]);
+        }
 
+        printf("\n");
 }
